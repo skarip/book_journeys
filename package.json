@@ -1,0 +1,18 @@
+{
+  "name": "book_journeys",
+  "version": "0.0.0",
+  "description": "Track the movement of books.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Sandeep Karipineni",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "method-override": "^2.3.4",
+    "morgan": "^1.6.1"
+  }
+}
