@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html ng-app="bookJourneys">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Book Journeys</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    html                    { overflow-y:scroll; }
+    body                    { padding-top:50px; }
+  </style>
+
+  <!--script src="https://code.jquery.com/jquery-2.1.4.min.js"></script-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
+  <script src="core.js"></script>
+</head>
+<body ng-controller="MainController">
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Books in collection: <span class="label label-info">{{ books.length }}</span></h1>
+    </div>
+  </div>
+</body>
+</html>

@@ -34,10 +34,6 @@ var bookSchema = mongoose.Schema({
 var Book = mongoose.model('Book', bookSchema);
 
 //routing
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
 app.get('/v1/books', function(req, res) {
   Book.find(function(err, books) {
     err ? res.send(err) : res.json(books);
@@ -48,6 +44,10 @@ app.post('/v1/books', function(req, res) {
   Book.create(req.body.book, function(err, book) {
     err ? res.send(err) : res.json(book);
   });
+});
+
+app.get('*', function(req, res) {
+  res.sendfile('./public/index.html');
 });
 
 //listen
