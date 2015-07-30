@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <h1>New book</h1>
+  <accordion>
+    <accordion-group heading="Step 1: Add a book" is-open="status.isAddBookOpened" is-disabled="status.isAddBookDisabled">
+      <form novalidate name="newBookForm">
+        <div class="form-group">
+          <h4>Search for a book:</h4>
+          <!--<label for="bookTitleInput">Search for a book:</label>-->
+          <input type="text" class="form-control" id="bookTitleInput" placeholder="Search by name or ISBN"
+                 ng-model="selected" typeahead="book.title for book in getBook($viewValue)"
+                 typeahead-on-select="populateBook($item)" typeahead-editable="false">
+        </div>
+        <h4>Or enter manually:</h4>
+        <div class="form-group" ng-class="{ 'has-error' : newBookForm.book_title.$invalid && !newBookForm.book_title.$pristine }">
+          <label for="book_title">Book Title</label>
+          <input type="text" class="form-control" name="book_title" placeholder="Title" ng-model="newBook.title" required>
+          <p ng-show="newBookForm.book_title.$invalid && !newBookForm.book_title.$pristine" class="help-block">Book title is required.</p>
+        </div>
+        <div class="form-group"  ng-class="{ 'has-error' : newBookForm.book_author.$invalid && !newBookForm.book_author.$pristine }">
+          <label for="book_author">Author</label>
+          <input type="text" class="form-control" name="book_author" placeholder="Author" ng-model="newBook.author" required>
+          <p ng-show="newBookForm.book_author.$invalid && !newBookForm.book_author.$pristine" class="help-block">Author is required.</p>
+        </div>
+        <div class="form-group">
+          <label for="book_isbn10">ISBN10</label>
+          <input type="text" class="form-control" name="book_isbn10" placeholder="ISBN10" ng-model="newBook.ISBN10">
+        </div>
+        <div class="form-group">
+          <label for="book_isbn13">ISBN13</label>
+          <input type="text" class="form-control" name="book_isbn13" placeholder="ISBN13" ng-model="newBook.ISBN13">
+        </div>
+        <div class="button-container pull-right">
+          <button class="btn btn-primary" ng-disabled="newBookForm.$invalid" ng-click="validateAndContinue()">
+            Continue <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </div>
+      </form>
+    </accordion-group>
+    <accordion-group heading="Step 2: Start a book's journey" is-open="status.isStartBookOpened" is-disabled="status.isStartBookDisabled">
+      <form>Form to add first location goes here</form>
+    </accordion-group>
+  </accordion>
+</div>
